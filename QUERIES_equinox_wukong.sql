@@ -1,20 +1,22 @@
 -- Finding price changes during vault and right before unvaulting
--- Repeated these queries with only changes to table and order_type filter
--- Equinox: During: 88 sell vs 41 buy     |     Right before: 76 sell vs 43 buy
--- Wukong:  During: 104 sell vs 48 buy    |     Right before: 82 sell vs 51 buy
-SELECT ROUND(AVG(platinum), 0) AS avg_during
-FROM equinox_prices
+-- Repeated these queries with only changes to table, order_type filter, and limit number
+-- Equinox: During: 80 sell vs 40 buy     |     Right before: 75 sell vs 43 buy
+-- Wukong:  During: 98 sell vs 50 buy     |     Right before: 80 sell vs 50 buy
+SELECT * FROM equinox_prices
 WHERE order_type = 'sell'
-AND creation_date BETWEEN '2023-10-06' AND '2024-04-23';
+AND creation_date BETWEEN '2023-10-06' AND '2024-04-23'
+ORDER BY platinum
+LIMIT 123;
 
-SELECT ROUND(AVG(platinum), 0) AS avg_rb
-FROM equinox_prices
+SELECT * FROM equinox_prices
 WHERE order_type = 'sell'
-AND creation_date BETWEEN '2024-04-24' AND '2024-05-07';
+AND creation_date BETWEEN '2024-04-24' AND '2024-05-07'
+ORDER BY platinum
+LIMIT 27;
 
 
 -- Finding price changes during the unvault period
--- Repeated these queries with only changes to table and order_type filter
+-- Repeated these queries with only changes to table, order_type filter, and limit number
 -- Equinox: Median: 65 sell vs 42 buy     |     Average: 70 sell vs 42 buy
 -- Equinox: Minimum selling price: 50     |     Maximum buying price: 50
 -- Wukong:  Median: 70 sell vs 50 buy     |     Average: 75 sell vs 50 buy
