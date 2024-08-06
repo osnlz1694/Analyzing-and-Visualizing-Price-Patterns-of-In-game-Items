@@ -1,4 +1,4 @@
--- Finding price changes right during and right before unvaulting
+-- Finding price changes during vault and right before unvaulting
 -- Repeated these queries with only changes to table and order_type filter
 -- Equinox: During: 88 sell vs 41 buy     |     Right before: 76 sell vs 43 buy
 -- Wukong:  During: 104 sell vs 48 buy    |     Right before: 82 sell vs 51 buy
