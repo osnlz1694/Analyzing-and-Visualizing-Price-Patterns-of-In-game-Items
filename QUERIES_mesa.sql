@@ -63,14 +63,9 @@ AND creation_date > '2024-03-14'
 ORDER BY platinum DESC;
 
 
--- Finding month-by-month price changes (avg, min, max)
--- Repeated first query with only changes to order_type filter
-SELECT ROUND(AVG(platinum), 0) AS avg_sell, MONTH(creation_date) AS month
-FROM mesa_prices
-WHERE order_type = 'sell'
-AND creation_date > '2024-02-15'
-GROUP BY MONTH(creation_date);
-
+-- Finding month-by-month price changes starting Feb. (min sell price, max buy price)
+-- min_sell: 80 -> 80 -> 60 -> 50 -> 75
+-- max_buy: 60 -> 70 -> 85 -> 80 -> 85
 SELECT MIN(platinum) AS min_sell, MONTH(creation_date) AS month
 FROM mesa_prices
 WHERE order_type = 'sell'
