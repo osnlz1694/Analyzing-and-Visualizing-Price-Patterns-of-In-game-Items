@@ -50,8 +50,9 @@ WHERE order_type = 'buy'
 AND creation_date > '2024-03-15';
 
 
--- Finding month-by-month price changes (avg, min, max)
--- Repeated first query with only changes to order_type filter
+-- Finding month-by-month price changes starting in Feb. (min sell price, max buy price)
+-- min_sell: 64 -> 60 -> 60 -> 50 -> 55
+-- max_buy: N/A -> 41 -> 50 -> 60 -> 46
 SELECT MIN(platinum) AS min_sell, MONTH(creation_date) AS month
 FROM atlas_prices
 WHERE order_type = 'sell'
@@ -60,6 +61,6 @@ GROUP BY MONTH(creation_date);
 
 SELECT MAX(platinum) AS max_buy, MONTH(creation_date) AS month
 FROM atlas_prices
-WHERE order_type = 'sell'
+WHERE order_type = 'buy'
 AND creation_date > '2024-02-16'
 GROUP BY MONTH(creation_date);
