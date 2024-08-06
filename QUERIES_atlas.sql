@@ -52,12 +52,6 @@ AND creation_date > '2024-03-15';
 
 -- Finding month-by-month price changes (avg, min, max)
 -- Repeated first query with only changes to order_type filter
-SELECT ROUND(AVG(platinum), 0) AS avg_sell, MONTH(creation_date) AS month
-FROM atlas_prices
-WHERE order_type = 'sell'
-AND creation_date > '2024-02-16'
-GROUP BY MONTH(creation_date);
-
 SELECT MIN(platinum) AS min_sell, MONTH(creation_date) AS month
 FROM atlas_prices
 WHERE order_type = 'sell'
