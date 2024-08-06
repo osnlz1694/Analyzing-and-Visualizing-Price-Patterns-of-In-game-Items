@@ -1,4 +1,4 @@
--- Finding SHORT-RUN average/median price for Mesa's vault period
+-- Finding IMMEDIATE SHORT-RUN average/median price for Mesa's vault period
 -- Repeated first two queries with only changes to order_type filter and limit amount
 -- Median: 100 sell vs 60 buy  |  Average: 105 sell vs 55 buy
 -- Minimum selling price: 80   |  Maximum buying price: 70
@@ -24,7 +24,7 @@ WHERE order_type = 'buy'
 AND creation_date BETWEEN '2024-02-15' AND '2024-03-14';
 
 
--- Finding LONG-RUN average/median price for Mesa's vault period
+-- Finding SHORT-RUN average/median price for Mesa's vault period
 -- Repeated first two queries with only changes to order_type filter and limit amount
 -- Median: 90 sell vs 65 buy  |  Average: 94 sell vs 62 buy
 -- Minimum selling price: 50  |  Maximum buying price: 85        !!!!!
