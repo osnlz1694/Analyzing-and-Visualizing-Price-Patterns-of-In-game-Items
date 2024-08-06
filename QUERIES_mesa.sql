@@ -63,7 +63,7 @@ AND creation_date > '2024-03-14'
 ORDER BY platinum DESC;
 
 
--- Finding month-by-month price changes starting Feb. (min sell price, max buy price)
+-- Finding month-by-month price changes starting in Feb. (min sell price, max buy price)
 -- min_sell: 80 -> 80 -> 60 -> 50 -> 75
 -- max_buy: 60 -> 70 -> 85 -> 80 -> 85
 SELECT MIN(platinum) AS min_sell, MONTH(creation_date) AS month
